@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css.css">
+    
+</head>
+<body>
+    <nav class="navbar">
+        <a href="add page.html">ADD</a>
+        <a href="View page.html">VIEW</a>
+    </nav>
+    <!-- student data form -->
+     <div class="form_div">
+        <h2>Student Information</h2>
+        <hr>
+        <!-- Student data form -->
+    <form id="student-data" action="View page.html">
+        Name: <input type="text" name="name" id="name" onblur="store()"><br><br>
+        ID: <input type="text" name="id" id="id" onblur="store()"><br><br>
+        Email: <input type="email" name="email" id="email" onblur="store()"><br><br>
+        Phone: <input type="tel" name="phone" id="phone" onblur="store()"><br><br>
+        City: <select name="city" id="city" onblur="store()">
+            <option value="Karachi">Karachi</option>
+            <option value="Lahore">Lahore</option>
+            <option value="Islambad">Islambad</option>
+            <option value="Hyderabad">Hyderabad</option>
+            <option value="Kashmir">Kashmir</option>
+            <option value="Rawalpindi">Rawalpindi</option>
+        </select><br><br>
+        D.O.B: <input type="date" name="dob" id="dob" onblur="store()"><br><br>
+        Gender: <input type="radio" name="gender" id="male" value="male" onblur="store()"> Male
+        <input type="radio" name="gender" id="female" value="female" onblur="store()"> Female<br><br>
+        Course: <input type="text" name="course" id="course" onblur="store()"><br><br>
+        Semester: <input type="number" name="sem" id="sem" onblur="store()"> <br><br>
+        <button type="submit" id="save" >save</button>
+    </form>
+</div>
+
+    <script>
+        function store(){
+            var name = document.getElementById("name").value;
+            var id = document.getElementById("id").value;
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
+            var city = document.getElementById("city").value;
+            var dob = document.getElementById("dob").value;
+            var gender = document.querySelector('input[name="gender"]:checked')?.value;
+            var course = document.getElementById("course").value;
+            var sem = document.getElementById("sem").value;
+
+            if(("localStorage" in window)&& window.localStorage !==null){
+            localStorage.setItem("name", name);
+            localStorage.setItem("id", id);
+            localStorage.setItem("email", email);
+            localStorage.setItem("phone", phone);
+            localStorage.setItem("city", city);
+            localStorage.setItem("dob", dob);
+            localStorage.setItem("gender", gender);
+            localStorage.setItem("course", course);
+            localStorage.setItem("sem", sem);
+            printme()            
+        }
+        }
+
+        
+   
+    </script>
+</body>
+</html>

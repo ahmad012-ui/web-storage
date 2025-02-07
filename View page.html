@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body onload="printme()">
+    <nav class="navbar">
+        <a href="add page.html">ADD</a>
+        <a href="View page.html">VIEW</a>
+    </nav>
+    
+
+    <div id="student_info">
+    </div>
+    
+
+    <script>
+        // Function to display student data
+        function printme() {
+            if(("localStorage" in window) && window.localStorage !== null) {
+                var studentInfo = document.getElementById("student_info");
+                var name = localStorage.getItem("name");
+                var email = localStorage.getItem("email");
+                var gender = localStorage.getItem("gender");
+                var course = localStorage.getItem("course");
+                var id = localStorage.getItem("id");
+                var phone = localStorage.getItem("phone");
+                var dob = localStorage.getItem("dob");
+                var semester = localStorage.getItem("sem");
+                studentInfo.innerHTML = "Name: " + name + "<br>" + "Gender: " + gender + "<br>" + "Course: " + course + "<br >" + "ID: " + id + "<br>" + "Email: " + email + "<br>" + "Phone: " + phone + "<br>" + "Date of Birth: " + dob + "<br>" + "semester: " + semester + "<br>"; 
+               
+
+            }
+            else{
+                document.getElementById("student_info").innerHTML = "Local Storage is not supported by your browser.";
+            }
+        }
+    </script>  
+    
+   
+        
+</body>
+</html>
